@@ -34,3 +34,7 @@ def parser_dump(path='events.txt'):
     with open(path, 'a', encoding='utf-8') as f:
         for key in events_base:
             f.write(f'{key} {events_base[key]["name"]}\n')
+
+
+
+print(parser_load())

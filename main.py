@@ -6,22 +6,36 @@ from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivy.metrics import dp
 
+
 class LoffEventsApp(MDApp):
 
     def build(self):
         self.root = Builder.load_file('interface.kv')
 
         for date, writing in datesall().items():
-            
-            card = MDCard(
-                    radius = dp(40),
-                    style = 'outlined',
-                    height = dp(100),
-                    padding = dp(20),
-                    size_hint_x = None, 
-                    width = dp(150),
-                    on_release = lambda x, d=date: self.date_selection(d)
-                    )
+            if date in parser_load():
+
+                card = MDCard(
+                        radius = dp(40),
+                        style = 'outlined',
+                        height = dp(100),
+                        padding = dp(20),
+                        size_hint_x = None,
+                        width = dp(150),
+                        on_release = lambda x, d=date: self.date_selection(date=parser_load()[d])
+                        )
+
+            else:
+                card = MDCard(
+                    radius=dp(40),
+                    style='outlined',
+                    height=dp(100),
+                    padding=dp(20),
+                    size_hint_x=None,
+                    width=dp(150),
+                    on_release=lambda x, d=date: self.date_selection(date=None)
+                )
+
             
             card.add_widget(
                 MDLabel(
@@ -37,15 +51,14 @@ class LoffEventsApp(MDApp):
 
     def date_selection(self, date):
 
-        print(parser_load()[date])
+        print(len(date))
 
-        try:
+        if date != None:
 
             self.root.ids['events'].clear_widgets()
 
-            for i in parser_load()[date]:
+            for i in date:
 
-                print(parser_load()[date])
                 card = MDCard(
                         radius = dp(40),
                         style = 'outlined',
@@ -63,7 +76,7 @@ class LoffEventsApp(MDApp):
                 )
                 self.root.ids['events'].add_widget(card)
 
-        except:
+        else:
             print('error')
 
 LoffEventsApp().run()
