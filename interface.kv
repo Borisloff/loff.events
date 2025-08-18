@@ -1,0 +1,33 @@
+MDBoxLayout:
+
+    padding: dp(10)
+    orientation: 'vertical'
+
+    MDCard:
+
+        radius: dp(40)
+        style: 'outlined'
+        size_hint: 1, None
+        height: dp(100)
+        padding: dp(10)
+
+        MDScrollView:
+
+            do_scroll_x: True
+            do_scroll_y: False
+
+            MDBoxLayout:
+
+                id: dates_card
+                spacing: dp(20)
+
+    MDScrollView:
+
+        do_scroll_x: False
+
+        MDBoxLayout:
+
+            id: events
+            orientation: 'vertical'
+            padding: dp(10)
+            spacing: dp(20)
