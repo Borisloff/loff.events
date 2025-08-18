@@ -44,7 +44,8 @@ class LoffEventsApp(MDApp):
             self.root.ids['events'].clear_widgets()
 
             for i in parser_load()[date]:
-                
+
+                print(parser_load()[date])
                 card = MDCard(
                         radius = dp(40),
                         style = 'outlined',
