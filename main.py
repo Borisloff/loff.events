@@ -5,7 +5,13 @@ from kivymd.app import MDApp
 from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivy.metrics import dp
+from kivymd.uix.navigationbar import MDNavigationItem
+from kivy.properties import StringProperty
 
+class BaseMDNavigationItem(MDNavigationItem):
+
+    icon = StringProperty()
+    text = StringProperty()
 
 class LoffEventsApp(MDApp):
 
@@ -14,7 +20,6 @@ class LoffEventsApp(MDApp):
     def build(self):
         self.root = Builder.load_file('interface.kv')
         self.theme_cls.theme_style = 'Dark'
-
 
         events_all = parser_load()
         dates = datesall()

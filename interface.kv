@@ -1,89 +1,136 @@
-MDScrollView:
+<BaseMDNavigationItem>
 
-    MDBoxLayout:
+    MDNavigationItemIcon:
+        icon: root.icon
 
-        id: layout
-        orientation: 'vertical'
-        size_hint_y: None
-        adaptive_height: True
-        padding: dp(10)
-        spacing: dp(10)
+    MDNavigationItemLabel:
+        text: root.text
 
-        MDCard:
+MDBoxLayout:
 
-            orientation: 'vertical'
-            adaptive_height: True
-            radius: dp(40)
-            padding: dp(20)
-            style: 'outlined'
+    size_hint_y: 1
+    orientation: 'vertical'
 
-            MDLabel:
+    MDScreenManager:
 
-                text: 'Лофф.События'
-                halign: 'center'
-                size_hint_y: None
-                height: dp(40)
+        id: screen_manager
 
-        MDCard:
+        MDScreen:
 
-            id: card_today
-            orientation: 'vertical'
-            adaptive_height: True
-            radius: dp(40)
-            padding: dp(20)
-            style: 'outlined'
+            name: 'events'
 
-            MDLabel:
+            MDScrollView:
 
-                text: 'Сегодня:'
-                halign: 'center'
-                size_hint_y: None
-                height: dp(40)
+                MDBoxLayout:
 
-        MDCard:
+                    id: layout
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    adaptive_height: True
+                    padding: dp(10)
+                    spacing: dp(10)
 
-            id: card_tomorrow
-            orientation: 'vertical'
-            adaptive_height: True
-            radius: dp(40)
-            padding: dp(20)
-            style: 'outlined'
+                    MDCard:
 
-            MDLabel:
+                        orientation: 'vertical'
+                        adaptive_height: True
+                        radius: dp(40)
+                        padding: dp(20)
+                        style: 'outlined'
 
-                text: 'Завтра:'
-                halign: 'center'
-                size_hint_y: None
-                height: dp(40)
+                        MDLabel:
 
-        MDCard:
+                            text: 'Лофф.События'
+                            halign: 'center'
+                            size_hint_y: None
+                            height: dp(40)
 
-            id: card_yesterday
-            orientation: 'vertical'
-            adaptive_height: True
-            radius: dp(40)
-            padding: dp(20)
-            style: 'outlined'
+                    MDCard:
 
-            MDLabel:
+                        id: card_today
+                        orientation: 'vertical'
+                        adaptive_height: True
+                        radius: dp(40)
+                        padding: dp(20)
+                        style: 'outlined'
 
-                text: 'Вчера:'
-                halign: 'center'
-                size_hint_y: None
-                height: dp(40)
+                        MDLabel:
 
-        MDCard:
+                            text: 'Сегодня:'
+                            halign: 'center'
+                            size_hint_y: None
+                            height: dp(40)
 
-            id: card_week_later
-            orientation: 'vertical'
-            adaptive_height: True
-            radius: dp(40)
-            padding: dp(20)
-            style: 'outlined'
+                    MDCard:
 
-            MDLabel:
+                        id: card_tomorrow
+                        orientation: 'vertical'
+                        adaptive_height: True
+                        radius: dp(40)
+                        padding: dp(20)
+                        style: 'outlined'
 
-                text: 'Через неделю:'
-                halign: 'center'
-                size_hint_y: None
-                height: dp(40)
+                        MDLabel:
+
+                            text: 'Завтра:'
+                            halign: 'center'
+                            size_hint_y: None
+                            height: dp(40)
+
+                    MDCard:
+
+                        id: card_yesterday
+                        orientation: 'vertical'
+                        adaptive_height: True
+                        radius: dp(40)
+                        padding: dp(20)
+                        style: 'outlined'
+
+                        MDLabel:
+
+                            text: 'Вчера:'
+                            halign: 'center'
+                            size_hint_y: None
+                            height: dp(40)
+
+                    MDCard:
+
+                        id: card_week_later
+                        orientation: 'vertical'
+                        adaptive_height: True
+                        radius: dp(40)
+                        padding: dp(20)
+                        style: 'outlined'
+
+                        MDLabel:
+
+                            text: 'Через неделю:'
+                            halign: 'center'
+                            size_hint_y: None
+                            height: dp(40)
+
+
+        MDScreen:
+
+            name: 'settings'
+
+        MDScreen:
+
+            name: 'help'
+
+
+    MDNavigationBar:
+        on_switch_tabs: app.on_switch_tabs(*args)
+        BaseMDNavigationItem:
+            id: home_button
+            icon: 'home'
+            text: 'События'
+            active: True
+        BaseMDNavigationItem:
+            id: settings_button
+            icon: 'cog'
+            text: 'Настройки'
+        BaseMDNavigationItem:
+            id: help_button
+            icon: 'help'
+            text: 'Помощь'
