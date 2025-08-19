@@ -1,33 +1,89 @@
-MDBoxLayout:
+MDScrollView:
 
-    padding: dp(10)
-    orientation: 'vertical'
+    MDBoxLayout:
 
-    MDCard:
-
-        radius: dp(40)
-        style: 'outlined'
-        size_hint: 1, None
-        height: dp(100)
+        id: layout
+        orientation: 'vertical'
+        size_hint_y: None
+        adaptive_height: True
         padding: dp(10)
+        spacing: dp(10)
 
-        MDScrollView:
+        MDCard:
 
-            do_scroll_x: True
-            do_scroll_y: False
-
-            MDBoxLayout:
-
-                id: dates_card
-                spacing: dp(20)
-
-    MDScrollView:
-
-        do_scroll_x: False
-
-        MDBoxLayout:
-
-            id: events
             orientation: 'vertical'
-            padding: dp(10)
-            spacing: dp(20)
+            adaptive_height: True
+            radius: dp(40)
+            padding: dp(20)
+            style: 'outlined'
+
+            MDLabel:
+
+                text: 'Лофф.События'
+                halign: 'center'
+                size_hint_y: None
+                height: dp(40)
+
+        MDCard:
+
+            id: card_today
+            orientation: 'vertical'
+            adaptive_height: True
+            radius: dp(40)
+            padding: dp(20)
+            style: 'outlined'
+
+            MDLabel:
+
+                text: 'Сегодня:'
+                halign: 'center'
+                size_hint_y: None
+                height: dp(40)
+
+        MDCard:
+
+            id: card_tomorrow
+            orientation: 'vertical'
+            adaptive_height: True
+            radius: dp(40)
+            padding: dp(20)
+            style: 'outlined'
+
+            MDLabel:
+
+                text: 'Завтра:'
+                halign: 'center'
+                size_hint_y: None
+                height: dp(40)
+
+        MDCard:
+
+            id: card_yesterday
+            orientation: 'vertical'
+            adaptive_height: True
+            radius: dp(40)
+            padding: dp(20)
+            style: 'outlined'
+
+            MDLabel:
+
+                text: 'Вчера:'
+                halign: 'center'
+                size_hint_y: None
+                height: dp(40)
+
+        MDCard:
+
+            id: card_week_later
+            orientation: 'vertical'
+            adaptive_height: True
+            radius: dp(40)
+            padding: dp(20)
+            style: 'outlined'
+
+            MDLabel:
+
+                text: 'Через неделю:'
+                halign: 'center'
+                size_hint_y: None
+                height: dp(40)
