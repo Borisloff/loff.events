@@ -20,6 +20,7 @@ class LoffEventsApp(MDApp):
     def build(self):
         self.root = Builder.load_file('interface.kv')
         self.theme_cls.theme_style = 'Dark'
+        self.theme_cls.primary_palette = 'Green'
 
         events_all = parser_load()
         dates = datesall()
@@ -153,39 +154,20 @@ class LoffEventsApp(MDApp):
 
         if events_all == 'error':
 
-            self.root.clear_widgets()
-
-            self.root.add_widget(
-                MDLabel(
-                    text = '''
-Файл событий заполнен неправильно.
-Он находиться в папке "Лофф.События" корневого расположения и называется "events.txt"
-
-Формат списка:
-
-* Строки, начинающиеся со знака «*»,
-* являются служебными
-07.01.1963 АБИШЕВ Тимур Кенесович
-07.01.1775 ДУХОВАНИЧ Василий Иванович
-08.01.1975 КАЛАБУХОВ Дмитрий Николаевич
-08.01 День рыбака
-
-Возможно два типа дат: дни рождения и дни праздников.
-
-Формат дня рождения: 
-07.01.1963 АБИШЕВ Тимур Кенесович
-Формат праздника:
-08.01 День рыбака
-                    ''',
-                    size_hint_y = None,
-                    adaptive_height = True,
-                    padding = dp(20)
-                )
-            )
-
-
-
+            pass
 
         return self.root
+
+
+    def on_switch_tabs(self, bar, item, *args):
+
+        if item.text == 'События':
+            self.root.ids['screen_manager'].current = 'events'
+        elif item.text == 'Настройки':
+            self.root.ids['screen_manager'].current = 'settings'
+        elif item.text == 'Помощь':
+            self.root.ids['screen_manager'].current = 'help'
+
+
 
 LoffEventsApp().run()
