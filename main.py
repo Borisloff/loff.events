@@ -10,14 +10,6 @@ from kivymd.uix.navigationbar import MDNavigationItem
 from kivy.properties import StringProperty
 
 
-if platform == "android":
-    from android.permissions import request_permissions, Permission
-
-    request_permissions([
-        Permission.READ_EXTERNAL_STORAGE
-    ])
-
-
 class BaseMDNavigationItem(MDNavigationItem):
 
     icon = StringProperty()

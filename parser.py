@@ -2,6 +2,9 @@ import os
 import re
 from date import yearnow
 from datetime import datetime
+from plyer import filechooser
+
+file_path = filechooser.open_file(title='Выберите Sobytiya.txt')[0]
 
 events = []
 events_base = {}
@@ -31,7 +34,7 @@ def year_word(age: int) -> str:
         return 'лет'
 
 # ========== Основная функция загрузки парсера ==========
-def parser_load(path='events.txt'):
+def parser_load(path=file_path):
     global events, events_base
     events = []
     events_base = {}
