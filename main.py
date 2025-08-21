@@ -1,12 +1,22 @@
 from parser import parser_load
 from date import datenow, datesall, yearnow
 from kivy.lang import Builder
+from kivy.utils import platform
 from kivymd.app import MDApp
 from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 from kivy.metrics import dp
 from kivymd.uix.navigationbar import MDNavigationItem
 from kivy.properties import StringProperty
+
+
+if platform == "android":
+    from android.permissions import request_permissions, Permission
+
+    request_permissions([
+        Permission.READ_EXTERNAL_STORAGE
+    ])
+
 
 class BaseMDNavigationItem(MDNavigationItem):
 
