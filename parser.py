@@ -31,7 +31,7 @@ def year_word(age: int) -> str:
         return 'лет'
 
 # ========== Основная функция загрузки парсера ==========
-def parser_load(path='events.txt'):
+def parser_load(path='/storage/emulated/0/Documents/Лофф.События/Sobytiya.txt'):
     global events, events_base
     events = []
     events_base = {}
